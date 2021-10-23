@@ -1,0 +1,43 @@
+
+@mixin Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: var(--margin) 0px;
+    width: 100%;
+}
+
+@mixin Button {
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--Primario);
+    color: #F3FAFF;
+    height: 2rem;
+    &:hover{
+        transform: scale(1.03);
+    }
+}
+
+@mixin Section(){
+    position: relative;
+    margin: 1.5rem 0px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin Resaltado {
+    font-size: var(--h2-font);
+    font-weight: var(--font-weight-2);
+    color: var(--Primario);
+}
+
+@mixin Parrafo {
+    font-size: var(--smaller-font);
+    line-height: 1.2rem;
+    text-align: center;
+    color: var(--txt);
+}

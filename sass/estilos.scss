@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;500;600;700&display=swap');
+@import "Mixin";
+:root{
+    /*================== Colors ==================*/
+    --Primario: #00aaff;
+    --txt: #323437;
+    --Dark: #323437;
+    --Complementario: #888C92;
+    --Complementario-II: #A6AFB4;
+    --body-bg: #F3FAFF;
+    /*================== Font Size ==================*/
+    --h2-font: 1.25rem;
+    --normal-font: .938rem;
+    --small-font: .7rem;
+    --smaller-font: .625rem;
+    --font-weight-2: 700; 
+    /*================== Margin ==================*/
+    --margin: 1rem;
+    --margin-desktop: 3rem;
+    body.dark_mode{
+        --body-bg: #323437;
+        --txt: #F3FAFF;
+        --Dark: #FFF;
+
+    }
+}
+/*================== Generales ==================*/
+*{
+    margin: 0;
+    padding: 0; 
+    font-family: 'Epilogue', sans-serif;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+    
+    font-size: var(--normal-font);
+    transition: 500ms ease-in-out;
+    background: var(--body-bg);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--body-bg);
+
+    /*================== DARK MODE ==================*/
+    &.dark_mode{
+        .NavBar__Container--Links {
+            .Sun{ 
+                display: flex;
+            }
+            .Moon{ 
+                display: none;
+            }
+        }
+    }
+}
+#fig-2{
+    position: absolute;
+    top: 165%;
+    width: 7%;
+    left: 0;
+}
+#fig-3{
+    position: absolute;
+    top: 165%;
+    width: 4.5%;
+    right: 2rem;
+}
+/*================== NAVBAR ==================*/
+.NavBar{
+    position: relative;
+    height: 4.5rem;
+    width: 100%;
+    background: var(--body-bg);
+    box-shadow: 0px -1px 3px #5d6778;
+    transition: 500ms ease-in-out;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /*------------- CONTAINER LOGO -------------*/
+    .NavBar__Container--Logo{
+        margin-left: var(--margin-desktop);
+        width:  6.5rem;
+        display: flex;
+    }
+    #Logo-Light{
+        display: block;
+    }
+     /*------------- CONTAINER ICONO -------------*/
+    .NavBar__Container--Icon{
+        margin-right: var(--margin);
+        display: block;
+        #Icon-Menu{
+            display: none;
+        }
+    }
+     /*------------- CONTAINER LINKS -------------*/
+    .NavBar__Container--Links{
+        height: 100%;
+        width:  4.5rem;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        .Switch{
+            @include Container();
+            background: var(--Primario);
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            .sw-Icon{
+                cursor: pointer;
+                color: #F3FAFF;
+            }
+        }
+        #Sun{
+            display: none;
+            &.dark_mode{
+                display: flex;
+            }
+        }
+        #Moon{
+            display: flex;
+            &.dark_mode{
+                display: none;
+            }
+        }
+    }
+}
+/*================== HEADER ==================*/
+.Header{
+    height: 605px;
+    @include Section();
+    flex-direction: row-reverse;
+    justify-content: center;
+    /*------------- IMAGE -------------*/
+    img{
+       width: 37%;
+    }
+    .Header-Content{
+        @include Section();
+        width: 100% !important;
+        /*------------- TITLE -------------*/
+        .Header__Container--Title{
+            width: 100%;
+            height: calc(100%/5);
+            
+            color: var(--txt);
+            font-size: 2.2rem;
+            font-weight: var(--font-weight-2);
+            line-height: 3rem;
+            letter-spacing: .05rem;
+            z-index: -2;
+
+            @include Container();
+
+            #Resaltado{
+                @include Resaltado();
+                font-size: 2.2rem;
+            }
+        }
+        /*------------- Parrafo -------------*/
+        .Header__Container--Parrafo{
+            height: calc(100%/10);
+            @include Container();
+            
+            .Parrafo{
+                @include Parrafo();
+                font-size: .75rem;
+                margin: 0 10%;
+            }
+        }
+    }
+}
+/*================== DATA ==================*/
+.Data{
+    height: 605px;
+    @include Section();
+    justify-content: space-around;
+    /*------------- TITLE -------------*/
+    .Data__Container--Title{
+        text-align: center;
+        letter-spacing: .15rem;
+        line-height: 2rem;
+        @include Container();
+        @include Resaltado();
+        font-size: 2.15rem;
+    }
+    .Container-Data{
+        height: 80%;
+        @include Section();
+        flex-direction: row;
+        justify-content: space-around;
+        height: 60vh;
+        width: 100%;
+
+        #Ilus{
+            width: 300px;
+        }
+        .Dat{
+            height: 90%;
+            /*------------- Parrafo -------------*/
+            .Data__Container--Parrafo{
+                height: calc(100%/6);
+                @include Container();
+                @include Parrafo();
+            }
+            /*------------- INPUT -------------*/
+            .Data__Container--Input{
+                height: calc(100%/3);
+                @include Container();
+                #datos{
+                    width: 80%;
+                    height: 90%;
+                    padding: 15px;
+                    border-radius: 15px;
+                    border: none;
+                    
+                    color: var(--Complementario-II);
+                    font-size: var(--small-font);
+                    font-weight: 500;
+                    letter-spacing: .2rem;
+                    line-height: 1.5rem;
+                                
+                    outline: none;
+                    resize: none;
+
+                    &::placeholder{
+                        color: var(--Complementario-II);
+                    }
+                }
+            }
+            /*------------- BOTONES  -------------*/
+            .Data__Container--Button{
+                height: calc(100%/3);
+                width: 100%;
+                margin: var(--margin) 0px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+                .Button{
+                    width: 40%;
+                    height: 70%;
+                    @include Button();
+                }
+            }
+        }
+    }
+    
+}
+/*================== RESULTADOS ==================*/
+.Resultados{
+    height: 700px;
+    @include Section();
+    justify-content: center;
+    /*------------- TITLE -------------*/
+    .Resultados__Container--Title{
+        text-align: center;
+        letter-spacing: .05rem;
+        line-height: 2rem;
+        @include Container();
+        @include Resaltado();
+        font-size: 2.2rem;
+    }
+    .Result{
+        @include Container();
+        flex-direction: row;
+    }
+    /*------------- RESULTADOS PRINCIPAL -------------*/
+    .Resultados__Container--Datos{
+        @include Container();
+        height: calc(100%/1);
+        /*------------- CONTENDOR DE LOS RESULTADOS -------------*/
+        .Container-Datos-Resultados{
+            @include Container();
+            height: calc(100%/3);
+             /*------------- LABEL DE LOS RESULTADOS -------------*/
+            label{
+                font-size: var(--small-font);
+                color: var(--Primario);
+                letter-spacing: .25rem;
+            }
+             /*------------- INPUTS DE LOS RESULTADOS -------------*/
+            .Datos-Resultados{
+                width: 50%;
+                height: 2rem;
+                margin: 1rem 0;
+                border-radius: 30px;
+
+                color: var(--Complementario-II);
+                font-size: var(--small-font);
+                font-weight: 500;
+                text-align: center;
+                letter-spacing: .15rem;
+
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+/*================== GRAFICOS ==================*/
+#cir{
+    display: none;
+}
+#cir.active{
+    display: flex;
+    height: 75vh;
+    @include Section();
+    .Grafico__Container--Title{
+        text-align: center;
+        letter-spacing: .05rem;
+        line-height: 2rem;
+        @include Container();
+        @include Resaltado();
+    }
+    #Graph{
+        width: 40%;
+        margin: 1rem 0;
+    }
+}
+/*================== ALERTA ==================*/
+.swal2-show{
+    width: 30% !important;
+    margin: 0px;
+    border-radius: 30px !important;
+    /*------------- ICONS -------------*/
+    .swal2-icon.swal2-error{
+        height: 40px;
+        width: 40px;
+        border: 2px solid;
+        border-color: var(--Primario) !important;
+        .swal2-x-mark-line-left, .swal2-x-mark-line-right{
+            top: .55em !important;
+            width: .1em !important;
+            height: 1.5rem !important;
+            background: var(--Primario) !important;
+        }
+        .swal2-x-mark-line-left{
+            left: 47% !important;
+        }
+        .swal2-x-mark-line-right{
+            right: 47% !important;
+        }
+
+    }
+    /*------------- CONTAINER -------------*/
+    .swal2-html-container{
+        font-size: var(--small-font);
+    }
+    /*------------- TITLE -------------*/
+    .swal2-title{
+        @include Resaltado();
+    }
+    /*------------- BUTTON -------------*/
+    .swal2-styled.swal2-confirm{
+        background: var(--Primario) !important;
+        box-shadow: none !important;
+    }
+}
+
+/*================== MEDIA QUERYS ==================*/
+@media screen and (max-width: 870px) {
+    #fig-2{
+        display: none;
+    }
+    #fig-3{
+        display: none;
+    }
+    /*================== NAVBAR ==================*/
+    .NavBar{
+        /*------------- CONTAINER LOGO -------------*/
+        .NavBar__Container--Logo{
+            margin-left: 1.5rem;
+            width: 6rem;
+        }
+    }
+    /*================== HEADER ==================*/
+    .Header{
+        height: 440px;
+        @include Section();
+        /*------------- IMAGE -------------*/
+        img{
+            display: block;
+            width: 200px;
+            height: 200px;
+            z-index: -2;
+        }
+        .Header-Content{       
+           margin: 0px !important;
+            /*------------- TITLE -------------*/
+            .Header__Container--Title{
+                width: 100%;
+                height: calc(100%/5);
+                
+                color: var(--txt);
+                font-size: var(--h2-font);
+                font-weight: var(--font-weight-2);
+                line-height: 2rem;
+                letter-spacing: .05rem;
+                z-index: -2;
+        
+                @include Container();
+        
+                #Resaltado{
+                    @include Resaltado();
+                }
+            }
+            /*------------- Parrafo -------------*/
+            .Header__Container--Parrafo{
+                height: calc(100%/2);
+                @include Container();
+                
+                .Parrafo{
+                    @include Parrafo();
+                }
+            }
+            /*------------- BUTTON -------------*/
+            .Header__Container--Button{
+                width: 100%;
+                height: calc(100%/4);
+        
+                @include Container();
+                
+                #Button{
+                    width: 50%;
+                    @include Button();
+                }
+            }
+        }
+    }
+    /*================== DATOS ==================*/
+    .Data{
+        height: 455px;
+        .Data__Container--Title{
+            font-size: var(--h2-font);
+        }
+        .Container-Data{
+            margin: 0;
+            height: 80%;
+            .Dat{
+                height: 100%;
+            }
+            #Ilus{
+                display: none;
+            }
+        }
+    }
+    /*================== RESULTADOS ==================*/
+    .Resultados{
+        height: 910px;
+        .Resultados__Container--Title{
+            font-size: var(--h2-font);
+        }
+        .Resultados__Container--Datos{
+            background: var(--Primario-Op);
+            border-radius: 30px;
+        }
+        .Result{
+            flex-direction: column;
+        }
+
+    }
+    /*================== GRAFICO ==================*/
+
+    #cir.active{
+        height: 400px;
+        width: 700px;
+    }
+    /*================== ALERTA ==================*/
+    .swal2-show{
+        width: 85% !important;
+    }
+}
